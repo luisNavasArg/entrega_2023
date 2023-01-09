@@ -18,14 +18,16 @@ export default function App() {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
   const formRef=useRef(null)
-  let url ='http://localhost:8080/users'
+  let url ='https://nodejstest-production.up.railway.app/users'
 
   useEffect(() => {
     
-    pGet('http://localhost:8080/users').then(data=>{
+    pGet('https://nodejstest-production.up.railway.app/users').then(data=>{
       setUsers(data)
     }
-      )
+      ).catch(()=>{
+        setUsers([{}])
+      })
   },[]);
   const listar=()=>{
     peticionGet();
