@@ -7,14 +7,13 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import EditIcon from '@mui/icons-material/Edit';
 function UserList({setEditar, users,editOne,setView}) {
-  // users.map(u=>Object.keys(users))
-  console.log(Object.keys(users[0]));
+
  const edit=(id)=>{
   editOne(id)
   setEditar(true)
   setView(false)
  }
-
+ let contador=0;
   return (
     
     <Container sx={{display:'flex',justifyContent:'center'}} maxWidth="lg" > 
@@ -32,7 +31,7 @@ function UserList({setEditar, users,editOne,setView}) {
         <TableBody>
           {users.map((user) => (
             <TableRow
-              key={user.id}
+              key={'us-'+contador++}
               sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
             >
               <TableCell component="th" scope="row">
